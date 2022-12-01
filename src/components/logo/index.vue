@@ -30,6 +30,7 @@ export default {
     align-items: center;
   }
   &__title {
+    color: $color-white;
     font-weight: 500;
     span {
       color: $color-red;

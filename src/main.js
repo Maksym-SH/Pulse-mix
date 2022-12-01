@@ -6,11 +6,14 @@ import Notifications from "vue-notification";
 import SsrCarousel from 'vue-ssr-carousel';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
+
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'vue-ssr-carousel/index.css';
 
 Vue.component('ssr-carousel', SsrCarousel);
+
+
 Vue.use(Notifications);
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
