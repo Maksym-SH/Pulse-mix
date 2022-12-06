@@ -1,8 +1,14 @@
 <template>
   <div class="custom-select" :class="{ active: selectActive }">
-    <button class="custom-select__button" @click="toggleActive">
+    <button
+      class="custom-select__button"
+      @click="toggleActive"
+      @blur="selectActive = false"
+    >
       <span v-if="title">{{ title }}</span>
-      <b-icon v-else :icon="params.icon"></b-icon>
+
+      <b-icon v-else :icon="selectParams.icon"></b-icon>
+
       <b-icon
         v-if="showCaretIcon"
         class="button-caret"
@@ -14,7 +20,7 @@
       <div
         :class="[positionClass, directionClass]"
         class="custom-select__content"
-        v-if="selectActive"
+        v-show="selectActive"
       >
         <template v-if="contentIsPresent">
           <div class="content-item" v-for="item in content" :key="item.id">
@@ -22,8 +28,12 @@
             {{ item.text }}
           </div>
         </template>
-        <div class="custom-select--empty" v-else>
-          <h5>Нет данных для показа</h5>
+        <div class="custom-select__slot-content" v-else>
+          <slot>
+            <div class="custom-select--empty">
+              <h5>Нет данных для показа</h5>
+            </div>
+          </slot>
         </div>
       </div>
     </transition>
@@ -63,6 +73,11 @@ export default {
   data() {
     return {
       selectActive: false,
+      selectParams: {
+        direction: "right",
+        position: "bottom",
+        icon: "plus",
+      },
     };
   },
   methods: {
@@ -82,13 +97,18 @@ export default {
       return Object.keys(this.content).length;
     },
     positionClass() {
-      if (this.params.position) return `position-${this.params.position}`;
+      if (this.selectParams.position)
+        return `position-${this.selectParams.position}`;
       return "";
     },
     directionClass() {
-      if (this.params.direction) return `direction-${this.params.direction}`;
+      if (this.selectParams.direction)
+        return `direction-${this.selectParams.direction}`;
       return "";
     },
+  },
+  mounted() {
+    this.selectParams = { ...this.selectParams, ...this.params };
   },
 };
 </script>
@@ -100,10 +120,11 @@ export default {
   transition: 0.2s;
   &__button {
     padding: 5px 8px;
-    min-width: 40px;
+    min-width: 31px;
     border-radius: 4px;
     font-size: 14px;
     color: $color-white;
+    white-space: nowrap;
     background-color: transparent;
   }
   .button-caret {
@@ -113,7 +134,7 @@ export default {
     position: absolute;
     z-index: 2;
     top: 40px;
-    width: 200px;
+    width: 220px;
     padding: 2px;
     border-radius: 4px;
     height: auto;
@@ -167,11 +188,14 @@ export default {
       transform: rotate(180deg) translateY(-1px);
     }
   }
+  &__slot-content {
+    padding: 10px;
+  }
+
   &--empty {
     width: 100%;
     font-family: $NSLight;
     font-weight: 500;
-    padding: 20px 0;
     text-align: center;
     user-select: none;
   }

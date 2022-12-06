@@ -1,19 +1,20 @@
-@import './fonts.scss';
-@import './reset';
+@import "./fonts.scss";
+@import "./reset";
 
 // Colors
-$color-blue: #026AA7;
-$color-dark-blue: #172B4D;
+$color-blue: #026aa7;
+$color-dark-blue: #172b4d;
 $color-white: #ffffff;
 $color-black: #000000;
-$color-light-grey: #FAFBFC;
-$color-light-fill-grey: #EBECF0;
-$color-grey: #5E6C84;
-$color-dark-grey: #66748A;
-$color-yellow: #F2D600;
-$color-red: #EB4C42;
+$color-light-grey: #fafbfc;
+$color-light-fill-grey: #ebecf0;
+$color-grey: #5e6c84;
+$color-dark-grey: #66748a;
+$color-yellow: #f2d600;
+$color-red: #eb4c42;
 // Responsive
 $minWidth: 320px;
+$responsive-us: 480px;
 $responsive-xs: 576px;
 $responsive-sm: 768px;
 $responsive-md: 992px;
@@ -21,8 +22,8 @@ $responsive-lg: 1200px;
 $responsive-xl: 1400px;
 
 // Fonts
-$NSBold: 'NotoSansBold', sans-serif;
-$NSLight: 'NotoSansLight', sans-serif;
-$NSMedium: 'NotoSansMedium', sans-serif;
-$NSRegular: 'NotoSansRegular', sans-serif;
-$NSThin: 'NotoSansThin', sans-serif;
+$NSBold: "NotoSansBold", sans-serif;
+$NSLight: "NotoSansLight", sans-serif;
+$NSMedium: "NotoSansMedium", sans-serif;
+$NSRegular: "NotoSansRegular", sans-serif;
+$NSThin: "NotoSansThin", sans-serif;

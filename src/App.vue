@@ -18,10 +18,10 @@ export default {
 <style lang="scss">
 html {
   background-color: $color-light-grey;
+  overflow: hidden;
   min-height: 100vh;
 }
 #app {
-  min-width: $minWidth;
   font-family: $NSRegular;
 }
 // Notifications

@@ -31,6 +31,7 @@ export default {
   }
   &__title {
     color: $color-white;
+    white-space: nowrap;
     font-weight: 500;
     span {
       color: $color-red;
