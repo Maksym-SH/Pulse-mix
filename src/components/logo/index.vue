@@ -1,13 +1,13 @@
 <template>
   <div class="logo">
-    <div 
-      class="logo__wrapper"
-      :class="`logo--${size}`"
-    >
-      <img class="logo__img" src="@/assets/images/logo.svg" alt="">
-      <h4 class="logo__title">
-        Pulse <span>Mix</span>
-      </h4>
+    <div class="logo__wrapper" :class="`logo--${size}`">
+      <img
+        v-if="showImg"
+        class="logo__img"
+        src="@/assets/images/logo.svg"
+        alt=""
+      />
+      <h4 class="logo__title">Pulse <span>Mix</span></h4>
     </div>
   </div>
 </template>
@@ -18,10 +18,14 @@ export default {
     size: {
       type: String,
       default: "sm",
-      validator: (value) => ['sm', 'md', 'xl'].includes(value)
-    }
+      validator: (value) => ["sm", "md", "xl"].includes(value),
+    },
+    showImg: {
+      type: Boolean,
+      default: true,
+    },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 .logo {
@@ -45,7 +49,7 @@ export default {
   &--sm {
     .logo__title {
       span {
-        font-size: 22px;    
+        font-size: 22px;
       }
     }
     .logo__img {

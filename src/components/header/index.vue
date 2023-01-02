@@ -31,6 +31,14 @@
               <span>PulseMix</span>
             </h3>
           </router-link>
+          <router-link v-if="!isWelcomePage" :to="{ name: 'Welcome' }">
+            <div class="select-info__text">
+              Welcome
+            </div>
+            <h3 class="select-info__title">
+              Ознакомьтесь с приложением управления задач.
+            </h3>
+          </router-link>
         </c-select>
         <router-link :to="{ name: 'account' }">
           <span class="header__info-avatar">ФИ</span>
@@ -51,8 +59,30 @@ export default {
   data() {
     return {
       activeSelect: false,
+      isWelcomePage: false,
     };
   },
+  watch: {
+
+    $route: {
+      handler(value) {
+        if(value.name === 'Welcome') {
+          this.isWelcomePage = true;
+          return;
+        }
+        this.isWelcomePage = false;
+      },
+      immediate: true 
+    }
+  },
+  mounted() {
+    if(this.$route.name === "Welcome") {
+      this.isWelcomePage = true;
+    }
+    else {
+      this.isWelcomePage = false;
+    }
+  }
 };
 </script>
 
@@ -62,6 +92,7 @@ export default {
   padding: 5px 10px;
   width: 100%;
   top: 0;
+  z-index: 10;
   position: fixed;
   &__logo {
     margin-right: 10px;
@@ -86,16 +117,30 @@ export default {
       margin-left: 10px;
       height: 35px;
     }
-    .select-info__title {
-      margin-top: 5px;
-      text-align: center;
-      color: $color-dark-blue;
-      font-weight: 500;
-      font-size: 11px;
-      span {
-        font-weight: 600;
+ 
+    .select-info {
+      &__title {
+        margin-top: 5px;
+        text-align: center;
+        color: $color-dark-blue;
+        font-weight: 500;
+        font-size: 11px;
+        span {
+          font-weight: 600;
+        }
+      }
+      &__text {
+        background-color: black;
+        border-radius: 10px;
+        padding: 0 50px;
+        width: 100%;
+        text-align: center; 
+        padding: 40px 0;
+        color: $color-blue !important;
+        font-size: 30px;
       }
     }
+    
     &-avatar {
       border-radius: 50%;
       display: inline-block;

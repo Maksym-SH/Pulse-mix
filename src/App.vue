@@ -18,11 +18,13 @@ export default {
 <style lang="scss">
 html {
   background-color: $color-light-grey;
-  overflow: hidden;
+  overflow-x: hidden;
   min-height: 100vh;
+  min-width: $minWidth;
 }
 #app {
   font-family: $NSRegular;
+  padding-top: 45px;
 }
 // Notifications
 div.vue-notification-template {
@@ -42,6 +44,5 @@ div.vue-notification-template {
 }
 ::-webkit-scrollbar-thumb {
   background-color: $color-grey;
-  border-radius: 2px;
 }
 </style>
