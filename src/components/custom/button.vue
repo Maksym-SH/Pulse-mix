@@ -1,7 +1,9 @@
 <template>
   <button
     class="custom-button"
-    :class="`custom-button--${size} button-variant--${variant}`" @click="$emit('click')">
+    :class="`custom-button--${size} button-variant--${variant}`"
+    @click="$emit('click')"
+  >
     {{ title }}
   </button>
 </template>
@@ -16,7 +18,8 @@ export default {
     variant: {
       type: String,
       default: "info",
-      validator: (value) => ["info", "danger", "success"].includes(value),
+      validator: (value) =>
+        ["info", "danger", "success", "transparent"].includes(value),
     },
     size: {
       type: String,
@@ -27,13 +30,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .custom-button {
   outline: none;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   background-color: $color-grey;
   padding: 0.2em 0.6em;
-  text-transform: capitalize;
   border-radius: 5px;
   color: $color-light-grey;
   &--us {
@@ -66,6 +68,17 @@ export default {
     background-color: $color-green;
     &:hover {
       background-color: $color-green-hover;
+    }
+  }
+  &--transparent {
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+    border-radius: 0;
+    height: fit-content;
+    cursor: pointer;
+    &:hover {
+      color: $color-light-fill-grey;
     }
   }
 }

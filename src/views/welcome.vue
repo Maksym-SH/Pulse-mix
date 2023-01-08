@@ -1,77 +1,79 @@
 <template>
   <div class="welcome-page">
     <div class="welcome-page__container">
-        <div class="welcome-page__description">
-      <img src="@/assets/images/logo.svg" alt="" />
-      <h4 class="welcome-page__logo-title">Pulse<span>Mix</span></h4>
-    </div>
-    <div class="timeline-wrapper">
-      <div class="welcome-timeline">
-        <div class="timeline">
-          <div class="timeline-content">
-            <h3 class="title">Знакомство</h3>
-            <p class="description">
-              Здесь вы управляете своими задачами на разных стадиях их
-              выполнения. Давайте познакомимся с возможностями нашего
-              приложения.
-            </p>
+      <div class="welcome-page__description">
+        <img src="@/assets/images/logo.svg" alt="" />
+        <h4 class="welcome-page__logo-title">Pulse<span>Mix</span></h4>
+      </div>
+      <div class="timeline-wrapper">
+        <div class="welcome-timeline">
+          <div class="timeline">
+            <div class="timeline-content">
+              <h3 class="title">Знакомство</h3>
+              <p class="description">
+                Здесь вы управляете своими задачами на разных стадиях их
+                выполнения. Давайте познакомимся с возможностями нашего
+                приложения.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="timeline">
-          <div class="timeline-content">
-            <h3 class="title">Создавайте свои рабочие доски</h3>
-            <p class="description">
-              Рабочая доска - ваше личное пространство, куда могут зайти ваши
-              участники, просматривать статус задач а а так же создавать новые,
-              оставлять комментарии, перемещать их между статусами и многое
-              другое.
-            </p>
+          <div class="timeline">
+            <div class="timeline-content">
+              <h3 class="title">Создавайте свои рабочие доски</h3>
+              <p class="description">
+                Рабочая доска - ваше личное пространство, куда могут зайти ваши
+                участники, просматривать статус задач а а так же создавать
+                новые, оставлять комментарии, перемещать их между статусами и
+                многое другое.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="timeline">
-          <div class="timeline-content">
-            <h3 class="title">Расширяйте свою команду</h3>
-            <p class="description">
-              Привлекайте новых пользователей на вашу доску чтобы ваш рабочий
-              процесс пошел быстрее.
-            </p>
+          <div class="timeline">
+            <div class="timeline-content">
+              <h3 class="title">Расширяйте свою команду</h3>
+              <p class="description">
+                Привлекайте новых пользователей на вашу доску чтобы ваш рабочий
+                процесс пошел быстрее.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="timeline">
-          <div class="timeline-content">
-            <h3 class="title">Пространство</h3>
-            <p class="description">
-              Создайте профессиональное и удобное пространство для ваших
-              участников доски
-            </p>
+          <div class="timeline">
+            <div class="timeline-content">
+              <h3 class="title">Пространство</h3>
+              <p class="description">
+                Создайте профессиональное и удобное пространство для ваших
+                участников доски
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <ssr-carousel loop show-arrows show-dots @change="changePaginationText">
-      <div class="slide"><img src="@/assets/images/slide-1.png" alt="Slide 1"></div>
-      <div class="slide"><img src="@/assets/images/slide-2.png" alt="Slide 2"></div>
-      <div class="slide"><img src="@/assets/images/slide-3.png" alt="Slide 3"></div>
-    </ssr-carousel>
-    <div class="slider-description">
-      {{ sliderText }}
-    </div>
-    <div class="welcome-page__button-wrapper">
-      <router-link to="/">
-        <c-button variant="info" size="xl" title="приступить"/>
-      </router-link>
-    </div>
+      <ssr-carousel loop show-arrows show-dots @change="changePaginationText">
+        <div class="slide">
+          <img src="@/assets/images/slide-1.png" alt="Slide 1" />
+        </div>
+        <div class="slide">
+          <img src="@/assets/images/slide-2.png" alt="Slide 2" />
+        </div>
+        <div class="slide">
+          <img src="@/assets/images/slide-3.png" alt="Slide 3" />
+        </div>
+      </ssr-carousel>
+      <div class="slider-description">
+        {{ sliderText }}
+      </div>
+      <div class="welcome-page__button-wrapper">
+        <router-link to="/">
+          <c-button variant="info" size="xl" title="приступить" />
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { mapMutations, mapGetters } from "vuex";
-import cButton from "@/components/custom/button.vue";
 export default {
-  components: {
-    cButton,
-  },
   data() {
     return {};
   },
@@ -85,10 +87,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .welcome-page {
   min-height: 100vh;
-   background-color: $color-light-fill-grey;
+  background-color: $color-light-fill-grey;
   &__container {
     width: 100%;
     display: flex;
